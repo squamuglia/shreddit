@@ -1,0 +1,2 @@
+class Shred < ApplicationRecord
+end

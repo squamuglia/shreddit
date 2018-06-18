@@ -1,0 +1,2 @@
+class Subshreddit < ApplicationRecord
+end

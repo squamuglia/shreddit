@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner_id: 1
+  score: 1
+  title: MyString
+  content: MyString
+
+two:
+  owner_id: 1
+  score: 1
+  title: MyString
+  content: MyString
