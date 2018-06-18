@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :username
       t.string :password
-      t.boolean :admin
       t.string :photo
       t.string :bio
 
