@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.integer :score
       t.string :title
       t.string :content
-      t.string :fun_name
+      t.string :tony
 
       t.timestamps
     end
