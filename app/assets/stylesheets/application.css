@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+
+  @import 'subcss/reset';
+  @import 'subcss/display';
+  @import 'subcss/positioning';
+  @import 'subcss/flexbox';
+  @import 'subcss/align';
+  @import 'subcss/spacing';
+  @import 'subcss/buttons';
+  @import 'subcss/forms';
+  @import 'subcss/lists';
+  @import 'subcss/typography';
+  @import 'subcss/z-index';
+  @import '/trix_overwrite.css';
