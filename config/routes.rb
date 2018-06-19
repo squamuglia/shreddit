@@ -13,10 +13,10 @@ Rails.application.routes.draw do
 
 
 
-  get 'forums/:slug' => 'forums#show'
-  get 'forums/:slug/posts/new' => 'posts#new'
-  get 'forums/:slug/posts/:slug' => 'posts#show'
-  get 'forums/:slug/posts/:slug/edit' => 'posts#edit'
-  get 'users/:slug' => 'users#show'
+  get 'forums/:slug' => 'forums#show', as: "show_forum"
+  get 'forums/:slug/posts/new' => 'posts#new', as: "new_post"
+  get 'forums/:slug/posts/:slug' => 'posts#show', as: "show_post"
+  get 'forums/:slug/posts/:slug/edit' => 'posts#edit', as: "edit_post"
+  get 'users/:slug' => 'users#show', as: "show_user"
 
 end
