@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :posts
   resources :users
   resources :forums
-
-  get '/', to: 'posts#welcome'
+  resources :comments, only: :create
 
 end
