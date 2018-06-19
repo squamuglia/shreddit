@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/' => 'forums#index'
+
   resources :posts, only: [:create, :update, :destroy]
-  resources :users
+  resources :users, except: [:new, :index, :show]
   resources :forums, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :comments, only: :create
+  resources :sessions, only: [:create]
+  delete "/sessions", to: "sessions#destroy", as: "destroy_session"
+  get '/login' => 'sessions#new'
+  get '/register' => 'users#new'
+
+
 
   get 'forums/:slug' => 'forums#show'
   get 'forums/:slug/posts/new' => 'posts#new'
   get 'forums/:slug/posts/:slug' => 'posts#show'
   get 'forums/:slug/posts/:slug/edit' => 'posts#edit'
-  get '/' => 'forums#index'
+  get 'users/:slug' => 'users#show'
 
 end

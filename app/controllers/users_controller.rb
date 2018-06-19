@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_slug(params[:slug])
     @posts = @user.posts
   end
 
@@ -14,15 +14,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.slug = to_slug(user_params[:username])
     if @user.save
-      redirect_to @user
+      redirect_to "/users/#{@user.slug}"
     else
       render :new
     end
   end
 
   def edit
-    @user = User.find_by(params[:id])
+    @user = User.find_by_slug(params[:slug])
   end
 
   def update
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by(params[:id]).destroy
+    @user = User.find_by_slug(params[:slug]).destroy
   end
 
   private
