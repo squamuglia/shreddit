@@ -3,13 +3,24 @@
   <head>
     <title>Shreddit</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %> -->
+    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
 
+  </head>
   <body>
-    <%= yield %>
-  </body>
+  <div class="nav f">
+    <h3 class="s4 fll mt1 ml1 fa"><%= link_to 'Shreddit', posts_path, class:'no-under' %></h3>
+    <ul class="mt1 mr1 fa ar">
+      <li><%= link_to 'Home', '/' %></li>
+      <li><%= link_to 'Users', users_path %></li>
+      <li><%= link_to 'Posts', posts_path %></li>
+    </ul>
+</div>
+  <div class="px1">
+      <%= yield %>
+  </div>
+</body>
 </html>
