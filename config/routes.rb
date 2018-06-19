@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   delete "/sessions", to: "sessions#destroy", as: "destroy_session"
   get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
   get '/register' => 'users#new'
 
 

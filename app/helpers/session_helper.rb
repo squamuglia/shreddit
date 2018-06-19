@@ -1,5 +1,4 @@
-module SessionsHelper
-
+module SessionHelper
   def log_in_user!(user_id)
     session[:user_id] = user_id
   end
@@ -27,5 +26,4 @@ module SessionsHelper
   def logged_in_user
     User.find_by(id: logged_in_user_id_integer)
   end
-
 end

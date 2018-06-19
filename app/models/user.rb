@@ -7,4 +7,14 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
+
+
+  def password=(value)
+   @password = value
+   self.password_digest = BCrypt::Password.create(value)
+  end
+
+
+  has_secure_password
+
 end

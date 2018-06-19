@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   #
   # before_action :authenticate!
 
-  helper SessionsHelper
+  helper SessionHelper
 
   def to_slug(string)
     string.parameterize.truncate(80, omission: '')
