@@ -4,13 +4,20 @@ class PostsController < ActionController::Base
   end
 
   def show
-    @post = Post.find_by(params[:id])
+    @post = Post.find_by(id: params[:id])
   end
 
   def new
+    @post = Post.new
   end
 
   def create
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to @post
+    else
+      render :new
+    end
   end
 
   def edit
@@ -25,7 +32,7 @@ class PostsController < ActionController::Base
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :score, :title, :content)
+    params.require(:post).permit(:user_id, :score, :title, :content, :forum_id)
   end
 
 end
