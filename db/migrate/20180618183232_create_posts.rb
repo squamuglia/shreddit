@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.integer :forum_id
       t.integer :score
       t.string :title
-      t.string :content
+      t.text :content
 
       t.timestamps
     end

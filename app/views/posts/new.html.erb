@@ -1,12 +1,2 @@
 <h1>Create a New Post</h1>
-
-<%= form_for @post do |f| %>
-  <%= f.label "Title" %>
-  <%= f.text_field :title %> <br>
-  <%= f.label "Content" %>
-  <%= f.text_field :content %> <br>
-  <%= f.label "Username" %>
-  <%= f.collection_select :user_id, User.all, :id, :username %>
-  <%= f.collection_select :forum_id, Forum.all, :id, :name %>
-  <%= f.submit %>
-<% end %>
+<%= render "posts/form" %>

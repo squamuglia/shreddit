@@ -1,4 +1,4 @@
-class PostsController < ActionController::Base
+class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
@@ -6,6 +6,7 @@ class PostsController < ActionController::Base
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments
+    @user = @post.user
   end
 
   def new

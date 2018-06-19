@@ -1,4 +1,9 @@
-<%= @user.username %>
-<%= @user.email %>
-<%= @user.photo %>
-<%= @user.bio %>
+<h1><%= @user.username %></h1>
+<p><%= @user.email %>
+<p><%= @user.photo %></p>
+<p><%= @user.bio %></p>
+
+<h3>Posts</h3>
+<% @posts.each do |post| %>
+<p><%= link_to post.title, post %></p>
+<% end %>
