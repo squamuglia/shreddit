@@ -2,7 +2,7 @@
 <h3>Posts</h3>
 <ul>
   <% @posts.each do |post| %>
-    <li><%= link_to post.title, post %></li>
+    <li><%= link_to post.title, "/forums/#{@forum.slug}/posts/#{post.slug}" %></li>
   <% end %>
 </ul>
 

@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_slug(params[:slug])
     @comments = @post.comments
-    @comment = Comment.new(post_id: params[:id])
+    @comment = Comment.new(post_id: @post.id)
     @user = @post.user
   end
 
