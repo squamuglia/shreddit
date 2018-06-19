@@ -4,7 +4,7 @@ class ForumsController < ApplicationController
   end
 
   def show
-    @forum = Forum.find(params[:id])
+    @forum = Forum.find_by_slug(params[:slug])
     @posts = @forum.posts
   end
 
@@ -13,9 +13,10 @@ class ForumsController < ApplicationController
   end
 
   def create
-    @forum = Forum.new(params[:name])
+    @forum = Forum.new(forum_params)
+    @forum.slug = to_slug(forum_params[:name])
     if @forum.save
-      redirect_to @forum
+      redirect_to "/forums/#{@forum.slug}"
     else
       render :new
     end
@@ -35,8 +36,7 @@ class ForumsController < ApplicationController
 
   private
 
-  # def forum_params
-  #   params.require(:forum).permit(:name, :email, :password, :photo, :bio)
-  # end
-
+  def forum_params
+    params.require(:forum).permit(:name, :email, :password, :photo, :bio)
+  end
 end

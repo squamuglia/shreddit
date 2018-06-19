@@ -1,14 +1,5 @@
-<%= form_for @post do |f| %>
-  <%= f.label "Username" %>
-  <%= f.collection_select :user_id, User.all, :id, :username %>
-  <%= f.collection_select :forum_id, Forum.all, :id, :name %>
-
+<%= form_for @forum do |f| %>
   <%= f.label "Title" %>
-  <%= f.text_field :title %> <br>
-
-  <%= f.label :content %><br>
-  <%= f.hidden_field :content, id: :post_content %>
-  <trix-editor input="post_content"></trix-editor>
-
+  <%= f.text_field :name %> <br>
   <%= f.submit %>
 <% end %>
