@@ -2,3 +2,9 @@
 <h1><%= @post.title %></h1>
 <label for="author">Author: #</label><br>
 <label for="content">Content: <%= @post.content %></label>
+<label for="comments"> <br>
+  Comments: <br>
+  <% @comments.each do |comment| %>
+    <%= link_to comment.user.username, comment.user %>: <%= comment.content %> <br>
+  <% end %>
+</label>

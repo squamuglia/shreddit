@@ -5,6 +5,7 @@ class PostsController < ActionController::Base
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
   end
 
   def new
