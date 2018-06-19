@@ -27,3 +27,5 @@
   @import 'subcss/typography';
   @import 'subcss/z-index';
   @import '/trix_overwrite.css';
+
+.container { max-width: 980px;}
