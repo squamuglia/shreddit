@@ -1,18 +1,17 @@
 <h1><%= @post.title %></h1>
-<h3><%= @user.username %></h3>
-<p><%= sanitize @post.content %></p>
-<label for="comments"> <br>
-  Comments: <br>
-  <% @comments.each do |comment| %>
-    <%= link_to comment.user.username, comment.user %>: <%= comment.content %> <br>
-  <% end %>
-</label>
+<p><%= link_to @user.username, "/users/#{@user.slug}" %> | <%= @post.created_at.strftime("%B %d, %Y at %l:%M %P") %></p>
+<div class="border-bottom-dashed pb1"><%= sanitize @post.content %></div>
 
+  <h3>Comments:</h3>
+  <ul>
+    <% @comments.each do |comment| %>
+      <li class="grey br-20 mb05 px1"><%= link_to comment.user.username, comment.user %>: <%= comment.content %></li>
+    <% end %>
+  </ul>
 <h3>Post a Comment</h3>
 <%= form_for @comment do |f| %>
-<%= f.label "Username" %>
-<%= f.collection_select :user_id, User.all, :id, :username %>
-<%= f.label "Content" %>
+<%= f.hidden_field :user_id %>
+<%= f.label "Your Comment:" %>
 <%= f.text_field :content %>
 <%= f.hidden_field :post_id %>
 <%= f.submit %>

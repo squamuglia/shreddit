@@ -1,6 +1,5 @@
 <%= form_for @post do |f| %>
-  <%= f.label "Username" %>
-  <%= f.collection_select :user_id, User.all, :id, :username %>
+  <%= f.hidden_field :user_id %>
   <%= f.hidden_field :forum_id %>
 
   <%= f.label "Title" %>

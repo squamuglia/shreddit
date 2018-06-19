@@ -6,10 +6,8 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: user_params[:username])
-    # @user ||= User.new
     if @user && @user.authenticate(user_params[:password])
       helpers.log_in_user!(@user.id)
-      binding.pry
       redirect_to "/forums"
     else
       @user = User.new(username: user_params[:username])
@@ -20,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     helpers.log_out_user!
-    redirect_to entries_url
+    redirect_to '/'
   end
 
   private

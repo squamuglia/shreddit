@@ -28,4 +28,10 @@
   @import 'subcss/z-index';
   @import '/trix_overwrite.css';
 
-.container { max-width: 980px;}
+.container { max-width: 980px; margin: 80px auto;}
+
+.border-bottom-dashed { border-bottom: dashed 1px #000; }
+
+.grey { background: #efefef }
+
+.br-20 { border-radius: 20px }

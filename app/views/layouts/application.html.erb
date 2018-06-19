@@ -11,15 +11,28 @@
 
   </head>
   <body>
-  <div class="nav f">
-    <h3 class="s4 fll mt1 ml1 fa"><%= link_to 'Shreddit', '/', class:'no-under' %></h3>
-    <ul class="mt1 mr1 fa ar">
-      <li><%= link_to 'Home', '/' %></li>
-      <li><%= link_to 'Users', users_path %></li>
-      <li><%= link_to 'Posts', posts_path %></li>
+  <div class="nav f mb1">
+    <h3 class="s4 fll mt1 ml1 fa x50"><%= link_to 'Shreddit', '/', class:'no-under' %></h3>
+    <ul class="mt1 mr1 fa ar f x50 inline-block">
+      <li class="fa"><%= link_to 'Home', '/' %></li>
+      <li class="fa"><%= link_to 'Users', users_path %></li>
+      <li class="fa"><%= link_to 'Posts', posts_path %></li>
+      <% if logged_in? %>
+        <li class="fa">
+          User: <%= link_to logged_in_user.username, logged_in_user %> |
+          <%= link_to "Logout", destroy_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li class="fa">
+          <%= link_to "Register", '/register' %>
+        </li>
+        <li class="fa">
+          <%= link_to "Login", '/login' %>
+        </li>
+      <% end %>
     </ul>
 </div>
-  <div class="px1">
+  <div class="px1 container">
       <%= yield %>
   </div>
 </body>

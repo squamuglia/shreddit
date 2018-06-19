@@ -7,12 +7,14 @@ class PostsController < ApplicationController
     @post = Post.find_by_slug(params[:slug])
     @comments = @post.comments
     @comment = Comment.new(post_id: @post.id)
+    @comment.user_id = helpers.logged_in_user_id_string
     @user = @post.user
   end
 
   def new
     @forum = Forum.find_by_slug(params[:slug])
     @post = Post.new(forum_id: @forum.id)
+    @post.user_id = helpers.logged_in_user_id_string
   end
 
   def create
