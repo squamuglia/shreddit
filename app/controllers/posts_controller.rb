@@ -4,20 +4,22 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:slug])
     @comments = @post.comments
     @comment = Comment.new(post_id: params[:id])
     @user = @post.user
   end
 
   def new
-    @post = Post.new
+    @forum = Forum.find_by_slug(params[:slug])
+    @post = Post.new(forum_id: @forum.id)
   end
 
   def create
     @post = Post.new(post_params)
+    @post.slug = to_slug(post_params[:title])
     if @post.save
-      redirect_to @post
+      redirect_to "/forums/#{@post.forum.slug}/posts/#{@post.slug}"
     else
       render :new
     end

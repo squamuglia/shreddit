@@ -5,3 +5,5 @@
     <li><%= link_to post.title, post %></li>
   <% end %>
 </ul>
+
+<%= link_to "New Post", "/forums/#{@forum.slug}/posts/new" %>

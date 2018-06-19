@@ -14,6 +14,7 @@ class ForumsController < ApplicationController
 
   def create
     @forum = Forum.new(forum_params)
+    #generate forum slug
     @forum.slug = to_slug(forum_params[:name])
     if @forum.save
       redirect_to "/forums/#{@forum.slug}"
@@ -37,6 +38,7 @@ class ForumsController < ApplicationController
   private
 
   def forum_params
-    params.require(:forum).permit(:name, :email, :password, :photo, :bio)
+    params.require(:forum).permit(:name)
   end
+
 end

@@ -1,6 +1,6 @@
 <h1><%= @post.title %></h1>
 <h3><%= @user.username %></h3>
-<p><%= @post.content %></p>
+<p><%= sanitize @post.content %></p>
 <label for="comments"> <br>
   Comments: <br>
   <% @comments.each do |comment| %>

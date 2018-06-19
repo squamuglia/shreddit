@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :comments, only: :create
 
   get 'forums/:slug' => 'forums#show'
+  get 'forums/:slug/posts/new' => 'posts#new'
   get 'forums/:slug/posts/:slug' => 'posts#show'
   get 'forums/:slug/posts/:slug/edit' => 'posts#edit'
-  get 'forums/:slug/posts/new' => 'posts#new'
-
+  get '/' => 'forums#index'
 
 end
