@@ -12,6 +12,7 @@ end
 max = User.create(username: "Max", email: "maxsmouha@gmail.com", password: "12345", photo: "new.jpg", bio: "yuuuuup")
 tony = User.create(username: "Tony", email: "tonyreiser@gmail.com", password: "12345", photo: "new.jpg", bio: "yuuuuup")
 chef = User.create(username: "Chef Boyardee", email: "chefb@gmail.com", password: "12345", photo: "new.jpg", bio: "the best ravioli around")
+
 max.update(slug: to_slug(max.username))
 tony.update(slug: to_slug(tony.username))
 chef.update(slug: to_slug(chef.username))
