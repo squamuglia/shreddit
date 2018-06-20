@@ -4,14 +4,14 @@
 <h3>Comments:</h3>
 <ul>
   <% @comments.each do |comment| %>
-    <li class="grey br-20 mb05 px1"><%= "Likes: #{comment.likes.count}"%> | <%= link_to comment.user.username, "/users/#{comment.user.slug}" %>: <%= comment.content %></li>
+    <li class="grey br-20 mb05 px1 py05"><%= "Likes: #{comment.likes.count}"%> | <%= link_to comment.user.username, "/users/#{comment.user.slug}" %>: <%= comment.content %></li>
   <% end %>
 </ul>
 <h3>Post a Comment</h3>
 <%= form_for @comment do |f| %>
 <%= f.hidden_field :user_id %>
 <%= f.label "Your Comment:" %>
-<%= f.text_field :content %>
+<%= f.text_area :content, class: 'x' %>
 <%= f.hidden_field :post_id %>
 <%= f.submit %>
 <% end %>
