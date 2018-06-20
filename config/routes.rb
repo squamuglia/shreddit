@@ -21,6 +21,4 @@ Rails.application.routes.draw do
   get 'users/:slug/edit' => 'users#edit', as: "edit_user"
   patch 'users/:id' => 'users#update', as: "update_user"
 
-
-
 end
