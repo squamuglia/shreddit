@@ -55,7 +55,7 @@
     margin-right: 5px;
   }
 
-.home-bg {
+/* .home-bg {
   height: 100vw;
   background: linear-gradient(89deg, #000000, #ffffff);
   background-size: 400% 400%;
@@ -66,5 +66,5 @@
       0%{background-position:0% 14%}
       50%{background-position:100% 87%}
       100%{background-position:0% 14%}
-  }
-}
+  } */
+  

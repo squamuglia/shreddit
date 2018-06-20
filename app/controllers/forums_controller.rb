@@ -1,7 +1,7 @@
 class ForumsController < ApplicationController
 
   def welcome
-    render :layout =>  "home"  
+    # render :layout =>  "home"
   end
 
   def index
