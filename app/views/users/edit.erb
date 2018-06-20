@@ -1,29 +1,37 @@
-<%= form_for @user do |f| %>
-<div class="field">
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<div class='xmax500 border p1 mxa'>
+  <% if logged_in_as?(@user.id) %>
+    <h3>Edit <%= @user.username %></h3>
+    <%= form_for @user do |f| %>
+    <div class="field">
+      <p><%= f.label :username %></p>
+      <%= f.text_field :username, class:'x' %>
+    </div>
+
+    <div class="field">
+      <p><%= f.label :email %></p>
+      <%= f.text_field :email, class:'x' %>
+    </div>
+
+    <div class="field">
+      <p><%= f.label :bio %></p>
+      <%= f.text_area :bio, class:'x' %>
+    </div>
+
+    <div class="field">
+      <p><%= f.label 'Upload Your Avatar' %></p>
+      <%= f.file_field :avatar, class:'x' %>
+    </div>
+
+    <div class="field">
+      <p><%= f.label :password %></p>
+      <%= f.password_field :password, class:'x' %>
+    </div>
+
+    <%= f.submit "Save" %>
+
+    <% end %>
+    <% else %>
+      <h3 class="ac">Don't</h3>
+      <p class="ac"><%= link_to 'Go Back', "/users/#{@user.slug}" %></p>
+  <% end %>
 </div>
-
-<div class="field">
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-</div>
-
-<div class="field">
-  <%= f.label :bio %>
-  <%= f.text_area :bio %>
-</div>
-
-<div class="field">
-  <%= f.label 'Upload Your Avatar' %>
-  <%= f.file_field :avatar %>
-</div>
-
-<div class="field">
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-</div>
-
-<%= f.submit "Save" %>
-
-<% end %>
