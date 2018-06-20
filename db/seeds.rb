@@ -39,12 +39,18 @@ Comment.create(user_id: chef.id, post_id: p3.id, content: "I need a new lawmower
 Comment.create(user_id: tony.id, post_id: p3.id, content: "DM me")
 
 p4 = Post.create(title: "Bones in this yard", content: "gimme 500 for it", user_id:max.id, forum_id: forum3.id)
-Comment.create(user_id: chef.id, post_id: p4.id, content: "I need a new lawmower")
+c4 = Comment.create(user_id: chef.id, post_id: p4.id, content: "I need a new lawmower")
 Comment.create(user_id: tony.id, post_id: p4.id, content: "DM me")
 
 p5 = Post.create(title: "Friends indeed", content: "gimme 500 for it", user_id:max.id, forum_id: forum4.id)
-Comment.create(user_id: chef.id, post_id: p5.id, content: "I need a new lawmower")
-Comment.create(user_id: tony.id, post_id: p5.id, content: "DM me")
+c1 = Comment.create(user_id: chef.id, post_id: p1.id, content: "hennessey")
+c2 = Comment.create(user_id: chef.id, post_id: p5.id, content: "I need a new lawmower")
+c3 = Comment.create(user_id: tony.id, post_id: p5.id, content: "DM me")
+l1 = Like.create(user_id: tony.id, comment_id: c1.id)
+l2 = Like.create(user_id: max.id, comment_id: c1.id)
+l3 = Like.create(user_id: tony.id, comment_id: c4.id)
+l4 = Like.create(user_id: max.id, comment_id: c1.id)
+
 p1.update(slug: to_slug(p1.title))
 p2.update(slug: to_slug(p2.title))
 p3.update(slug: to_slug(p3.title))
