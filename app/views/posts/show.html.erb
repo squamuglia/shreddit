@@ -10,6 +10,9 @@
   </ul>
 
 <h3>Post a Comment</h3>
+<% if session[:comment_errors] != nil && session[:comment_errors].any? %>
+  <%= session[:comment_errors].first %>
+<% end %>
 <%= form_for @comment do |f| %>
 <%= f.hidden_field :user_id %>
 <%= f.label "Your Comment:" %>
