@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/' => 'forums#index'
+  get '/' => 'forums#welcome'
 
   resources :posts, only: [:create, :update, :destroy]
   resources :users, only: [:create, :destroy]

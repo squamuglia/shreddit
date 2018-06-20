@@ -1,7 +1,12 @@
 class ForumsController < ApplicationController
+
+  def welcome
+    render :layout =>  "home"  
+  end
+
   def index
     @forums = Forum.all
-    
+
   end
 
   def show

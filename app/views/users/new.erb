@@ -1,28 +1,31 @@
+<div class='xmax500 border p1 mxa'>
+<h3>Register</h3>
 <%= form_for @user do |f| %>
 <div class="field">
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+  <p><%= f.label :username %></p>
+  <%= f.text_field :username, class:'x' %>
 </div>
 
 <div class="field">
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+  <p><%= f.label :email %></p>
+  <%= f.text_field :email, class:'x' %>
 </div>
 
 <div class="field">
-  <%= f.label :bio %>
-  <%= f.text_field :bio %>
+  <p><%= f.label :bio %></p>
+  <%= f.text_field :bio, class:'x' %>
 </div>
 
 <div class="field">
-  <%= f.label 'Upload Your Avatar' %>
-  <%= f.file_field :avatar %>
+<p>  <%= f.label 'Upload Your Avatar' %></p>
+  <%= f.file_field :avatar, class:'x' %>
 </div>
 
 <div class="field">
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+<p>  <%= f.label :password %></p>
+  <%= f.password_field :password, class:'x' %>
 </div>
   <%= f.submit "Register" %>
 
 <% end %>
+</div>
