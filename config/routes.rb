@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:create, :update, :destroy]
   resources :users, only: [:create, :destroy]
   resources :forums, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :comments, only: :create
+  resources :comments, only: [:create]
   resources :sessions, only: [:create]
   delete "/sessions", to: "sessions#destroy", as: "destroy_session"
   get '/login' => 'sessions#new'
