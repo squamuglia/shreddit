@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/register' => 'users#new'
 
+  post 'forums/:slug/posts/:slug' => 'likes#create'
+
 
 
   get 'forums/:slug' => 'forums#show', as: "show_forum"

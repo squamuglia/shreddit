@@ -2,7 +2,7 @@
 
 <ol>
   <% @forums.each do |forum| %>
-    <li><%= link_to forum.name, "forums/#{forum.slug}" %> | <%= pluralize(forum.posts.count, 'Post')%></li>
+    <li class="x"><%= link_to forum.name, "forums/#{forum.slug}" %> | <%= pluralize(forum.posts.count, 'Post')%></li>
   <% end %>
 </ol>
 

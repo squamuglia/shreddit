@@ -1,22 +1,52 @@
 <h1><%= @post.title %></h1>
-<p><%= link_to @user.username, "/users/#{@user.slug}" %> | <%= @post.created_at.strftime("%B %d, %Y at %l:%M %P") %></p>
+<p>        <% if @user.avatar_url %>
+          <%= image_tag(@user.avatar_url.to_s, class: 'rnd box30 fll mr05') %>
+        <% else %>
+          <%= image_tag('/uploads/pholder.jpg', class: 'rnd box30 fll mr05') %>
+        <% end %>
+<%= link_to @user.username, "/users/#{@user.slug}" %> | <%= @post.created_at.strftime("%B %d, %Y at %l:%M %P") %></p>
 <div class="pb1"><%= sanitize @post.content %></div>
 
   <h3>Comments:</h3>
   <ul>
     <% @comments.each do |comment| %>
-      <li class="grey br-20 mb05 px1 py05"><%= "Likes: #{comment.likes.count}"%> | <%= link_to comment.user.username, "/users/#{comment.user.slug}" %>: <%= comment.content %></li>
+      <li class="grey br-20 mb05 px1 py05">
+        <% if comment.user.avatar_url %>
+          <%= image_tag(comment.user.avatar_url.to_s, class: 'rnd box30 fll mr05') %>
+        <% else %>
+          <%= image_tag('/uploads/pholder.jpg', class: 'rnd box30 fll mr05') %>
+        <% end %>
+        <span class="like small">
+
+          <%= form_tag("/forums/#{comment.post.forum.slug}/posts/#{comment.post.slug}/", method: "post") do %>
+            <%= hidden_field_tag(:comment_id, comment.id) %>
+            <%# submit_tag("like") %>
+            <label>
+              <input type="submit" style="display:none;"/>
+              <% if comment.likes.map { |like| like.user }.include?(logged_in_user)  %>
+                <%= image_tag('/red-heart.svg') %>
+              <% else %>
+                <%= image_tag('/heart.svg') %>
+            <% end %>
+            </label>
+
+          <% end %>
+
+
+<%= "#{comment.likes.count}"%></span> | <%= link_to comment.user.username, "/users/#{comment.user.slug}" %>: <%= comment.content %></li>
     <% end %>
   </ul>
 
-<h3>Post a Comment</h3>
-<% if session[:comment_errors] != nil && session[:comment_errors].any? %>
-  <%= session[:comment_errors].first %>
-<% end %>
-<%= form_for @comment do |f| %>
-<%= f.hidden_field :user_id %>
-<%= f.label "Your Comment:" %>
-<%= f.text_area :content, class: 'x' %>
-<%= f.hidden_field :post_id %>
-<%= f.submit %>
+<% if logged_in? %>
+  <h3>Post a Comment</h3>
+  <% if session[:comment_errors] != nil && session[:comment_errors].any? %>
+    <%= session[:comment_errors].first %>
+  <% end %>
+  <%= form_for @comment do |f| %>
+  <%= f.hidden_field :user_id %>
+  <%= f.label "Your Comment:" %>
+  <%= f.text_area :content, class: 'x' %>
+  <%= f.hidden_field :post_id %>
+  <%= f.submit %>
+  <% end %>
 <% end %>
