@@ -18,6 +18,4 @@ Rails.application.routes.draw do
   get 'forums/:slug/posts/:slug' => 'posts#show', as: "show_post"
   get 'forums/:slug/posts/:slug/edit' => 'posts#edit', as: "edit_post"
   get 'users/:slug' => 'users#show', as: "show_user"
-  
-
 end
