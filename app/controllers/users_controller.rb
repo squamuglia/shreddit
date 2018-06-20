@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
     @user.update(user_params)
   end
 
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :photo, :bio)
+    params.require(:user).permit(:username, :email, :password, :avatar, :bio)
   end
 
 end

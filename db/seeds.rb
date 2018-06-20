@@ -5,13 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.all.destroy_all
+Forum.all.destroy_all
+Post.all.destroy_all
+Comment.all.destroy_all
+
 def to_slug(string)
   string.parameterize.truncate(80, omission: '')
 end
 
-max = User.create(username: "Max", email: "maxsmouha@gmail.com", password: "12345", photo: "new.jpg", bio: "yuuuuup")
-tony = User.create(username: "Tony", email: "tonyreiser@gmail.com", password: "12345", photo: "new.jpg", bio: "yuuuuup")
-chef = User.create(username: "Chef Boyardee", email: "chefb@gmail.com", password: "12345", photo: "new.jpg", bio: "the best ravioli around")
+max = User.create(username: "Max", email: "maxsmouha@gmail.com", password: "12345", avatar: "new.jpg", bio: "yuuuuup")
+tony = User.create(username: "Tony", email: "tonyreiser@gmail.com", password: "12345", avatar: "new.jpg", bio: "yuuuuup")
+chef = User.create(username: "Chef Boyardee", email: "chefb@gmail.com", password: "12345", avatar: "new.jpg", bio: "the best ravioli around")
 
 max.update(slug: to_slug(max.username))
 tony.update(slug: to_slug(tony.username))
@@ -29,6 +35,8 @@ p1 = Post.create(title: "Welcome to my post", content: "It is what it is", user_
 
 Comment.create(user_id: tony.id, post_id: p1.id, content: "This post is bullshit")
 Comment.create(user_id: max.id, post_id: p1.id, content: "Lol")
+Comment.create(user_id: max.id, post_id: p1.id, content: "What does it look like hwne you write a very very long comment and just keep writing we're curious so we're just goning to keep on typiong without stopping accuracy be damend. I'm like a runaway train here toooooooooot tooot just tip tip typing away typing typing done stop.")
+
 
 p2 = Post.create(title: "Selling used lawnmower", content: "gimme 500 for it", user_id:tony.id, forum_id: forum2.id)
 Comment.create(user_id: chef.id, post_id: p2.id, content: "I need a new lawmower")
