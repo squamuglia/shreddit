@@ -1,14 +1,6 @@
 <h1><%= @post.title %></h1>
 <p><%= link_to @user.username, "/users/#{@user.slug}" %> | <%= @post.created_at.strftime("%B %d, %Y at %l:%M %P") %></p>
 <div class="border-bottom-dashed pb1"><%= sanitize @post.content %></div>
-<<<<<<< HEAD
-<h3>Comments:</h3>
-<ul>
-  <% @comments.each do |comment| %>
-    <li class="grey br-20 mb05 px1 py05"><%= "Likes: #{comment.likes.count}"%> | <%= link_to comment.user.username, "/users/#{comment.user.slug}" %>: <%= comment.content %></li>
-  <% end %>
-</ul>
-=======
 
   <h3>Comments:</h3>
   <ul>
@@ -17,7 +9,6 @@
     <% end %>
   </ul>
 
->>>>>>> master
 <h3>Post a Comment</h3>
 <%= form_for @comment do |f| %>
 <%= f.hidden_field :user_id %>
