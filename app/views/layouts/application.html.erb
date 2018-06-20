@@ -16,7 +16,7 @@
     <ul class="mt1 mr1 fa ar f x50 xmax500 inline-block">
       <li class="fa"><%= link_to 'Home', '/' %></li>
       <li class="fa"><%= link_to 'Forums', forums_path %></li>
-      <% if logged_in? %>
+rails       <% if logged_in? %>
         <li class="fa">
           User: <%= link_to logged_in_user.username, logged_in_user %> |
           <%= link_to "Logout", destroy_session_path, method: :delete %>
