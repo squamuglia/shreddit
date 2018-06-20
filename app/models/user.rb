@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
+
   has_many :forum_admins
   has_many :forums, through: :forum_admin
 

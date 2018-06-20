@@ -13,3 +13,6 @@ ol.list {
 ul.list {
   list-style: disc;
 }
+li {
+  display: table;
+}
