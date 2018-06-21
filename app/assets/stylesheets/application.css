@@ -42,7 +42,7 @@
 
 .rnd { border-radius: 50% }
 
-.box200 { width: 200px; height: 200px; }
+.box200 { max-width: 200px; max-height: 200px; height: 200px; }
 
 .box30 { width: 30px; height: 30px; }
 
@@ -54,6 +54,9 @@
     margin-top: 8px;
     margin-right: 5px;
   }
+
+.maxy300 { max-height: 300px }
+.maxx300 { max-width: 300px }
 
 /* .home-bg {
   height: 100vw;
@@ -67,4 +70,3 @@
       50%{background-position:100% 87%}
       100%{background-position:0% 14%}
   } */
-  
