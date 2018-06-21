@@ -55,7 +55,7 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
+  # Add s support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
@@ -66,5 +66,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
-  gem 'pg', '0.20.0'
+  gem 'pg'
 end
