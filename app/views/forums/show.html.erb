@@ -1,3 +1,18 @@
+<h1><%= @forum.name %></h1>
+<p>Created by: <%= link_to @forum.creator, "/users/#{@forum.creator_slug}" %></p>
+<p>
+  <%= "admins:" %>
+  <ul>
+    <% @admins.each do |admin| %>
+       <!-- if we are at the last admin in list, we dont want a comma -->
+      <% if @admins.last == admin %>
+        <li><%= link_to admin.username, "/users/#{admin.slug}" %></li>
+      <% else %>
+        <li><%= link_to admin.username, "/users/#{admin.slug}" %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</p>
 
 <%= link_to "New Post", "/forums/#{@forum.slug}/posts/new" %>
 
