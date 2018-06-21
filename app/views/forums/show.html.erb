@@ -1,9 +1,14 @@
 <div class="border p1 flr x200">
-  <p class="mt0 ac"><%= "Admins" %></p>
+  <p class="mt0 ac"><%= "Admin" %></p>
+  <hr class="mb1">
   <ul>
     <% @admins.each do |admin| %>
     <!-- if we are at the last admin in list, we dont want a comma -->
-      <li><%= link_to admin.username, "/users/#{admin.slug}", class:"admin" %></li>
+    <% if @forum.creator_object == admin.user %>
+      <li><%= link_to @forum.creator, "/users/#{admin.slug}", class:'admin' %></li>
+    <% else @fas.include?(admin) %>
+      <li><%= link_to admin.username, "/users/#{admin.slug}", class:'mod' %></li>
+    <% end %>
     <% end %>
   </ul>
 </div>

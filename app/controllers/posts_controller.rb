@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     @comment.user_id = helpers.logged_in_user_id_string
     @like = Like.new
     @user = @post.user
+    @fas = @post.forum.forum_admin_users
   end
 
   def new

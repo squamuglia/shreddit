@@ -13,6 +13,7 @@ class ForumsController < ApplicationController
     @forum = Forum.find_by_slug(params[:slug])
     @posts = @forum.posts
     @admins = @forum.forum_admins
+    @fas = @forum.forum_admin_users
   end
 
   def new

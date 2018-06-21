@@ -71,6 +71,18 @@
   padding-left: 1.6em;
 }
 
+.mod:before {
+  content: '';
+  display: inline-block;
+  height: 0.75em;
+  width: 0.75em;
+  background-image: url(/mod-crown.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 1.6em;
+}
+
+
 /* .home-bg {
   height: 100vw;
   background: linear-gradient(89deg, #000000, #ffffff);

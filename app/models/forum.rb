@@ -14,6 +14,12 @@ class Forum < ApplicationRecord
     end
   end
 
+  def forum_admin_users
+    self.forum_admins.map do |admin|
+      admin.user
+    end
+  end
+
   #gets username of creator
   def creator
     User.find_by(id: self.user_id).username

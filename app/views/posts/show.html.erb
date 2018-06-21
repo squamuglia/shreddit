@@ -36,6 +36,8 @@
 <%= "#{comment.likes.count}"%></span> |
 <% if comment.post.forum.creator_object == comment.user %>
   <%= link_to comment.user.username, "/users/#{comment.user.slug}", class:'admin' %>
+<% elsif @fas.include?(comment.user) %>
+  <%= link_to comment.user.username, "/users/#{comment.user.slug}", class:'mod' %>
 <% else %>
   <%= link_to comment.user.username, "/users/#{comment.user.slug}" %>
 <% end %>: <%= comment.content %></li>
