@@ -2,10 +2,9 @@
 
 <ol>
   <% @forums.each do |forum| %>
-    <li><%= link_to forum.name, "forums/#{forum.slug}" %> | <%= pluralize(forum.posts.count, 'Post')%></li>
+    <li class="x"><%= link_to forum.name, "forums/#{forum.slug}" %> | <%= pluralize(forum.posts.count, 'Post')%></li>
   <% end %>
 </ol>
 
 
-<h3>Create a New Forum</h3>
-<%= link_to "New Forum", "/forums/new" %>
+<p><%= link_to "Create a New Forum", "/forums/new" %></p>

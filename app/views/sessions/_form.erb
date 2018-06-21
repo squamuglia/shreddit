@@ -14,13 +14,13 @@
 
 <%= form_with(model: @user, local: true, url: login_path) do |form| %>
   <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
+    <p><%= form.label :username %></p>
+    <%= form.text_field :username, class:'x' %>
   </div>
 
   <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+    <p><%= form.label :password %></p>
+    <%= form.password_field :password, class:'x' %>
   </div>
 
   <div class="actions">

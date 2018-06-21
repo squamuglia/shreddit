@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     @comments = @post.comments
     @comment = Comment.new(post_id: @post.id)
     @comment.user_id = helpers.logged_in_user_id_string
+    @like = Like.new
     @user = @post.user
   end
 

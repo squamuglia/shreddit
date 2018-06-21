@@ -11,6 +11,7 @@
 
   </head>
   <body>
+  <div class="home-bg"
   <div class="nav f mb1">
     <h3 class="s4 fll mt1 ml1 fa x50"><%= link_to 'Shreddit', '/', class:'no-under' %></h3>
     <ul class="mt1 mr1 fa ar f x50 xmax500 inline-block">
@@ -30,9 +31,7 @@
         </li>
       <% end %>
     </ul>
+    <%= yield %>
 </div>
-  <div class="px1 container">
-      <%= yield %>
-  </div>
 </body>
 </html>

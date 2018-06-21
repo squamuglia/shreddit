@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/' => 'forums#index'
+  get '/' => 'forums#welcome'
 
   resources :posts, only: [:create, :update, :destroy]
   resources :users, only: [:create, :destroy]
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/register' => 'users#new'
+
+  post 'forums/:slug/posts/:slug' => 'likes#create'
 
 
 

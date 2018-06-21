@@ -30,11 +30,7 @@
 
 .container { max-width: 980px; margin: 80px auto; }
 
-.container a {
-    color: #12b8dd;
-    text-decoration: none;
-    font-weight: 600;
-}
+.container a { color: #333; }
 
 .border-bottom-dashed { border-bottom: dashed 1px #000; }
 
@@ -47,3 +43,28 @@
 .rnd { border-radius: 50% }
 
 .box200 { width: 200px; height: 200px; }
+
+.box30 { width: 30px; height: 30px; }
+
+.like img { width: 15px }
+
+.like form {
+    width: 15px;
+    float: left;
+    margin-top: 8px;
+    margin-right: 5px;
+  }
+
+/* .home-bg {
+  height: 100vw;
+  background: linear-gradient(89deg, #000000, #ffffff);
+  background-size: 400% 400%;
+
+  animation: AnimationName 9s ease infinite;
+
+  @keyframes AnimationName {
+      0%{background-position:0% 14%}
+      50%{background-position:100% 87%}
+      100%{background-position:0% 14%}
+  } */
+  
