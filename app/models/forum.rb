@@ -4,6 +4,9 @@ class Forum < ApplicationRecord
 
   has_many :posts
 
+  validates :name, presence: true
+  validates :name, uniqueness: true
+
   def forum_admin_usernames
     #map all of the admin usernames for easier deplay on forum#show
     self.forum_admins.map do |admin|
@@ -20,4 +23,5 @@ class Forum < ApplicationRecord
   def creator_slug
     User.find_by(id: self.user_id).slug
   end
+
 end

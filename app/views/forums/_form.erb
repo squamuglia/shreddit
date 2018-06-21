@@ -1,11 +1,16 @@
 
 <% if logged_in? %>
-  <%= form_for @forum do |f| %>
+  <% if @forum.errors.any? %>
+    <ul>
+      <% @forum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <%= form_for @forum do |f| %>
     <%= f.label "Title" %>
-    <%= f.text_field :name %> <br>
-    <%= f.hidden_field :user_id %>
+    <%= f.text_field :name, class:'x' %> <br>
     <%= f.submit %>
-  <% end %>
+    <% end %>
 <% else %>
   <%= link_to "Login to create a forum", "/login" %>
 <% end %>

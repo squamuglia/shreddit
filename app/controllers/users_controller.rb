@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, except: [:show, :new]
-
+  before_action :require_login, except: [:show, :new, :create]
 
   def index
     @users = User.all
@@ -45,7 +44,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :avatar, :bio)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :avatar, :bio)
   end
 
   def require_login
