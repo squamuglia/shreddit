@@ -83,17 +83,3 @@
   background-repeat: no-repeat;
   padding-left: 1.6em;
 }
-
-
-/* .home-bg {
-  height: 100vw;
-  background: linear-gradient(89deg, #000000, #ffffff);
-  background-size: 400% 400%;
-
-  animation: AnimationName 9s ease infinite;
-
-  @keyframes AnimationName {
-      0%{background-position:0% 14%}
-      50%{background-position:100% 87%}
-      100%{background-position:0% 14%}
-  } */
