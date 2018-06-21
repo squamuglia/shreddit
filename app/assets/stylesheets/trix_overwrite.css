@@ -54,7 +54,9 @@ trix-toolbar .button_group button:not(:disabled), trix-toolbar .button_group inp
 }
 
 trix-toolbar .button_group button.active, trix-toolbar .button_group input[type=button].active {
-  background: #cbeefa;
+  transform: translate(2px, 2px);
+  box-shadow: none;
+  transition: 0.2s;
 }
 
 trix-toolbar .button_group button.icon, trix-toolbar .button_group input[type=button].icon {

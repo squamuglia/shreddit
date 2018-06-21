@@ -10,6 +10,8 @@ User.all.destroy_all
 Forum.all.destroy_all
 Post.all.destroy_all
 Comment.all.destroy_all
+ForumAdmin.all.destroy_all
+Like.all.destroy_all
 
 def to_slug(string)
   string.parameterize.truncate(80, omission: '')

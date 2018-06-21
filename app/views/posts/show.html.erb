@@ -33,7 +33,12 @@
           <% end %>
 
 
-<%= "#{comment.likes.count}"%></span> | <%= link_to comment.user.username, "/users/#{comment.user.slug}" %>: <%= comment.content %></li>
+<%= "#{comment.likes.count}"%></span> |
+<% if comment.post.forum.creator_object == comment.user %>
+  <%= link_to comment.user.username, "/users/#{comment.user.slug}", class:'admin' %>
+<% else %>
+  <%= link_to comment.user.username, "/users/#{comment.user.slug}" %>
+<% end %>: <%= comment.content %></li>
     <% end %>
   </ul>
 

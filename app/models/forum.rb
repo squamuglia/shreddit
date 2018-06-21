@@ -19,6 +19,11 @@ class Forum < ApplicationRecord
     User.find_by(id: self.user_id).username
   end
 
+  def creator_object
+    User.find_by(id: self.user_id)
+  end
+
+
   #gets slug of creator
   def creator_slug
     User.find_by(id: self.user_id).slug

@@ -58,6 +58,19 @@
 .maxy300 { max-height: 300px }
 .maxx300 { max-width: 300px }
 
+.x200 { width: 200px }
+
+.admin:before {
+  content: '';
+  display: inline-block;
+  height: 0.75em;
+  width: 0.75em;
+  background-image: url(/crown.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 1.6em;
+}
+
 /* .home-bg {
   height: 100vw;
   background: linear-gradient(89deg, #000000, #ffffff);
