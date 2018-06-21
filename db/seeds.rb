@@ -67,5 +67,5 @@ p5.update(slug: to_slug(p5.title))
 
 
 
-ForumAdmin.create(forum_id: forum.id, user_id: tony.id)
-ForumFollow.create(forum_id: forum.id, user_id: max.id)
+fa1 = ForumAdmin.create(forum_id: forum.id, user_id: tony.id)
+fa2 = ForumAdmin.create(forum_id: forum.id, user_id: max.id)
