@@ -6,4 +6,7 @@ class Forum < ApplicationRecord
   has_many :users, through: :forum_follow
 
   has_many :posts
+
+  validates :name, presence: true
+  validates :name, uniqueness: true
 end

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to "/forums"
     else
       @user = User.new(username: user_params[:username])
-      @errors = ["Those credentials don't match anything we have"]
+      @errors = ["We can't find you on our list. Maybe try a different name, passcode?"]
       render :new
     end
   end

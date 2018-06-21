@@ -1,4 +1,6 @@
-<h1><%= @forum.name %></h1>
+<h1 class="mb025"><%= @forum.name %></h1>
+<%= link_to "New Post", "/forums/#{@forum.slug}/posts/new" %>
+
 <h3>Posts</h3>
 <ul>
   <% @posts.each do |post| %>
@@ -6,5 +8,3 @@
     <!-- <li><%= link_to post.title, show_forum_url(@forum.slug, post.slug) %> | <%= pluralize(post.comments.count, 'Comment')%></li> -->
   <% end %>
 </ul>
-
-<%= link_to "New Post", "/forums/#{@forum.slug}/posts/new" %>

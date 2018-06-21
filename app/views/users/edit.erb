@@ -1,4 +1,12 @@
 <div class='xmax500 border p1 mxa'>
+  <% if @user.errors.any? %>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
   <% if logged_in_as?(@user.id) %>
     <h3>Edit <%= @user.username %></h3>
     <%= form_for @user do |f| %>
@@ -26,6 +34,12 @@
       <p><%= f.label :password %></p>
       <%= f.password_field :password, class:'x' %>
     </div>
+
+    <div class="field">
+      <p><%=f.label :password_confirmation %></p>
+      <%=f.password_field :password_confirmation, class:'x' %>
+    </div>
+
 
     <%= f.submit "Save" %>
 

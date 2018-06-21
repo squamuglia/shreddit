@@ -1,5 +1,12 @@
+<% if @forum.errors.any? %>
+  <ul>
+  <% @forum.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
 <%= form_for @forum do |f| %>
   <%= f.label "Title" %>
-  <%= f.text_field :name %> <br>
+  <%= f.text_field :name, class:'x' %> <br>
   <%= f.submit %>
 <% end %>
