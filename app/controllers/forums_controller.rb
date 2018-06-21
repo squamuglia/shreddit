@@ -12,10 +12,13 @@ class ForumsController < ApplicationController
   def show
     @forum = Forum.find_by_slug(params[:slug])
     @posts = @forum.posts
+    @admins = @forum.forum_admins
   end
 
   def new
     @forum = Forum.new
+    #this will set the 'owner' of the forum as a user_id
+    @forum.user_id = helpers.logged_in_user_id_integer
   end
 
   def create
@@ -23,6 +26,8 @@ class ForumsController < ApplicationController
     #generate forum slug
     @forum.slug = to_slug(forum_params[:name])
     if @forum.save
+      #create the forum admin relationship
+      ForumAdmin.create(user_id: @forum.user_id, forum_id: @forum.id)
       redirect_to "/forums/#{@forum.slug}"
     else
       render :new
@@ -44,7 +49,7 @@ class ForumsController < ApplicationController
   private
 
   def forum_params
-    params.require(:forum).permit(:name)
+    params.require(:forum).permit(:name, :user_id)
   end
 
 end
