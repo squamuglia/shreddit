@@ -1,4 +1,4 @@
-<div class="border p1 flr x200">
+<div class="border p1 flr x200 shadow">
   <p class="mt0 ac"><%= "Admin" %></p>
   <hr class="mb1">
   <ul>
@@ -13,9 +13,14 @@
   </ul>
 </div>
 <h1><%= @forum.name %></h1>
-<p>Created by: <%= link_to @forum.creator, "/users/#{@forum.creator_slug}", class:"admin" %></p>
-
-<%= link_to "New Post", "/forums/#{@forum.slug}/posts/new" %>
+<p>Created by: <%= link_to @forum.creator, "/users/#{@forum.creator_slug}", class:"admin" %>
+  <% if logged_in? %>
+  <% if @forum.creator_object == logged_in_user %>
+    | <%= link_to 'Edit Forum', "/forums/#{@forum.slug}/edit" %>
+  <% end %>
+<% end %>
+</p>
+<p><%= link_to "New Post", "/forums/#{@forum.slug}/posts/new" %></p>
 
 <h3>Posts</h3>
 <ul>

@@ -28,7 +28,7 @@
   @import 'subcss/z-index';
   @import '/trix_overwrite.css';
 
-.container { max-width: 980px; margin: 80px auto; }
+.container { max-width: 600px; margin: 80px auto; }
 
 .container a { color: #333; }
 
@@ -45,6 +45,8 @@
 .box200 { max-width: 200px; max-height: 200px; height: 200px; }
 
 .box30 { width: 30px; height: 30px; }
+
+.shadow { box-shadow: 2px 2px; }
 
 .like img { width: 15px }
 

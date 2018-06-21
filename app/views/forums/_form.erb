@@ -1,5 +1,4 @@
-
-<% if logged_in? %>
+<% if logged_in? && @forum.creator_object == logged_in_user %>
   <% if @forum.errors.any? %>
     <ul>
         <% @forum.errors.full_messages.each do |message| %>
