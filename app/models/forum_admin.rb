@@ -10,5 +10,4 @@ class ForumAdmin < ApplicationRecord
   def slug
     User.find_by(id: self.user_id).slug
   end
-
 end
