@@ -1,7 +1,7 @@
 class ForumsController < ApplicationController
 
   def welcome
-    # render :layout =>  "home"
+    render :layout =>  "home"
   end
 
   def index
@@ -62,7 +62,7 @@ class ForumsController < ApplicationController
   private
 
   def forum_params
-    params.require(:forum).permit(:name, :user_id)
+    params.require(:forum).permit(:name, :description, :user_id)
   end
 
 end

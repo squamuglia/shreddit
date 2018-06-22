@@ -88,3 +88,5 @@ em, .i {
 .no-under {
   text-decoration: none;
 }
+
+.break { word-wrap:break-word }

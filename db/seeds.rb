@@ -17,6 +17,7 @@ def to_slug(string)
   string.parameterize.truncate(80, omission: '')
 end
 
+
 max = User.create(username: "Max", email: "maxsmouha@gmail.com", password: "12345", avatar: "new.jpg", bio: "yuuuuup")
 tony = User.create(username: "Tony", email: "tonyreiser@gmail.com", password: "12345", avatar: "new.jpg", bio: "yuuuuup")
 chef = User.create(username: "Chef Boyardee", email: "chefb@gmail.com", password: "12345", avatar: "new.jpg", bio: "the best ravioli around")
@@ -27,11 +28,11 @@ chef.update(slug: to_slug(chef.username))
 
 
 
-forum = Forum.create(name:"Fun Forum", slug: to_slug("Fun Forum"), user_id: 1)
-forum2 = Forum.create(name:"Sales", slug: to_slug("Sales"), user_id: 2)
-forum3 = Forum.create(name:"Tbone's Boneyard", slug: to_slug("Tbone's Boneyard"), user_id: 2)
-forum4 = Forum.create(name:"Friends", slug: to_slug("Friends"), user_id: 2)
-forum5 = Forum.create(name:"Max's Forum, A Space for Max, to be Max", slug: to_slug("Friends"), user_id: 1)
+forum = Forum.create(name:"Fun Forum", description:"It's for fun", slug: to_slug("Fun Forum"), user_id: 1)
+forum2 = Forum.create(name:"Sales", description:"It's for sales", slug: to_slug("Sales"), user_id: 2)
+forum3 = Forum.create(name:"Tbone's Boneyard", description:"It's for bones", slug: to_slug("Tbone's Boneyard"), user_id: 2)
+forum4 = Forum.create(name:"Friends", description:"It's for friends", slug: to_slug("Friends"), user_id: 2)
+forum5 = Forum.create(name:"Max's Forum, A Space for Max, to be Max", description:"It's for MAX", slug: to_slug("Friends"), user_id: 1)
 
 
 p1 = Post.create(title: "Welcome to my post", content: "It is what it is", user_id:max.id, forum_id: forum.id)
@@ -67,7 +68,6 @@ p2.update(slug: to_slug(p2.title))
 p3.update(slug: to_slug(p3.title))
 p4.update(slug: to_slug(p4.title))
 p5.update(slug: to_slug(p5.title))
-
 
 
 fa1 = ForumAdmin.create(forum_id: forum.id, user_id: tony.id)

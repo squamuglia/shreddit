@@ -428,3 +428,35 @@ trix-editor .attachment progress {
   border: 1px solid #000;
   border-radius: 5px;
 }
+
+trix-editor li, .trix-editor li {
+    display: list-item;
+}
+
+trix-editor ul, .trix-editor ul {
+    list-style-type: circle;
+    padding-left: 1em;
+    margin: 1em 0;
+}
+
+trix-editor ol, .trix-editor ol {
+    list-style-type: decimal;
+    padding-left: 1em;
+    margin: 1em 0;
+}
+
+trix-editor pre, .trix-editor pre {
+    background: #e9e9e9;
+    display: table;
+    padding: 0px 0.5em;
+    border-radius: 3px;
+}
+
+trix-editor blockquote, .trix-editor blockquote {
+    border-left: 1px solid;
+    padding-left: 1em;
+}
+
+trix-editor h1, .trix-editor h1 {
+    font-size: 2em;
+}
