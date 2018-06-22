@@ -15,25 +15,8 @@
  */
 
 
-  /* @import 'subcss/reset';
-  @import 'subcss/display';
-  @import 'subcss/positioning';
-  @import 'subcss/flexbox';
-  @import 'subcss/align';
-  @import 'subcss/spacing';
-  @import 'subcss/buttons';
-  @import 'subcss/forms';
-  @import 'subcss/lists';
-  @import 'subcss/typography';
-  @import 'subcss/z-index';
-  @import '/trix_overwrite.css'; */
-
 .container { max-width: 600px; margin: 80px auto; }
 
-@media only screen and (max-width: 600px) {
-  .container { width: 100%; margin: 80px auto; }
-  .nav { margin: 0px; }
-}
 .container a { color: #333; }
 
 .border-bottom-dashed { border-bottom: dashed 1px #000; }
@@ -87,3 +70,9 @@
   background-repeat: no-repeat;
   padding-left: 1.6em;
 }
+
+@media only screen and (max-width: 600px) {
+    .container { width: 100%; margin: 80px auto; }
+    .nom { margin: 0px }
+    .x200 { width: 100% }
+  }
