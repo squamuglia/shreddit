@@ -1,5 +1,6 @@
 .f { display: flex }
 .fw { flex-wrap: wrap }
+.fwr { flex-wrap: wrap-reverse }
 .ais { align-items: flex-start }
 .aie { align-items: flex-end }
 .aic { align-items: center }

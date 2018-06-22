@@ -50,7 +50,7 @@ class ForumsController < ApplicationController
   private
 
   def forum_params
-    params.require(:forum).permit(:name, :user_id)
+    params.require(:forum).permit(:name, :description, :user_id)
   end
 
 end
