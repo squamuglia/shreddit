@@ -1,18 +1,15 @@
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
-
 .shape {
     margin: 0 auto;
     position: relative;
 }
 
 .random-shape:after {
-    font-family: FontAwesome;
     content: "\f005";
 }
 
 $circle-size: 100px;
 $colors: #FFD700, #FFF8DC, #DB7093, #C2B7FE, #95A9FF;
-$shapes: '\f005', '\f0c8', '\f1db', '\f096', '\f1d8', '\f1cb';
+$shapes: url('/crown.svg'), url('/red-heart.svg'), url('/mod-crown.svg');
 $shape-count: 50;
 
 @for $i from 1 through $shape-count {
@@ -40,13 +37,8 @@ $shape-count: 50;
         .random-shape:after {
             margin: #{$shape-size}rem;
             color: $shape-color;
-            font-size: #{$shape-size * 0.2}rem;
+            height: #{$shape-size * 0.2}rem;
             content: $shape-type;
         }
     }
-}
-
-.stop-shape  {
-    -webkit-animation-play-state: paused;
-    animation-play-state: paused;
 }
