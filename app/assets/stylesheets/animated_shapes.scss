@@ -1,0 +1,50 @@
+.shape {
+    margin: 0 auto;
+    position: relative;
+}
+
+.random-shape:after {
+    font-family: FontAwesome;
+    content: "\f005";
+}
+
+$circle-size: 100px;
+$colors: #FFD700, #FFF8DC, #DB7093, #C2B7FE, #95A9FF;
+$shapes: 'content: url(/crown.svg)', 'url(/mod-crown.svg)', 'url(/red-heart.svg)', 'url(/heart.svg)';
+$shape-count: 50;
+
+@for $i from 1 through $shape-count {
+    $shape-size: random(10);
+    $rotation: random(360);
+    $speed: 40 + random(10);
+    $color-key: random( length($colors) );
+    $shape-color: nth( $colors, $color-key );
+    $shape-key: random( length($shapes) );
+    $shape-type: nth( $shapes, $shape-key );
+    $text: random(10);
+
+    @keyframes shape-#{$i} {
+        0% {
+            transform: translate3d(0,0,0) rotate(#{$rotation + 0}deg);
+        }
+        100% {
+            transform: translate3d(0,0,0) rotate(#{$rotation + 360}deg);
+        }
+    }
+
+    .shape-container--#{$i} {
+        animation: shape-#{$i} #{$speed}s linear infinite;
+
+        .random-shape:after {
+            margin: #{$shape-size}rem;
+            height: #{$shape-size * 0.2}rem;
+            width: #{$shape-size * 0.2}rem;
+            content: $shape-type;
+        }
+    }
+}
+
+.stop-shape  {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}

@@ -6,7 +6,6 @@
         <%= image_tag('/uploads/pholder.jpg', class: 'fa x y') %>
       <% end %>
     </div>
-
     <div class="fa p1 border mb1 shadow">
       <h1 class="my0"><%= @user.username %></h1>
       <% if logged_in? %>
@@ -14,20 +13,22 @@
       <% end %>
 
       <p><%= @user.email %></p>
-      <p><%= @user.bio %></p>
     </div>
 </div>
 <div class="p1 border mb1 shadow">
-
-<h3 class="my0">Posts</h3>
-<% @posts.each do |post| %>
-  <p><%= link_to post.title, "/forums/#{post.forum.slug}/posts/#{post.slug}" %></p>
-<% end %>
-<% #New post functionality? Search by forum? %>
+  <h3 class="my0">Bio</h3>
+  <p><%= @user.bio %></p>
 </div>
 <div class="p1 border mb1 shadow">
-<h3 class="my0">Recent Likes</h3>
-<% @likes.each do |like| %>
-  <p><%= like.comment.user.username %> : <%= link_to like.comment.content, "/forums/#{like.comment.post.forum.slug}/posts/#{like.comment.post.slug}" %></p>
-<% end %>
+  <h3 class="my0">Posts</h3>
+  <% @posts.each do |post| %>
+    <p><%= link_to post.title, "/forums/#{post.forum.slug}/posts/#{post.slug}" %></p>
+  <% end %>
+  <% #New post functionality? Search by forum? %>
+  </div>
+  <div class="p1 border mb1 shadow">
+  <h3 class="my0">Recent Likes</h3>
+  <% @likes.each do |like| %>
+    <p><%= like.comment.user.username %> : <%= link_to like.comment.content, "/forums/#{like.comment.post.forum.slug}/posts/#{like.comment.post.slug}" %></p>
+  <% end %>
 </div>
