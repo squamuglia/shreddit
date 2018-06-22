@@ -6,8 +6,8 @@
         <% end %>
 <%= link_to @user.username, "/users/#{@user.slug}" %> | <%= @post.created_at.strftime("%B %d, %Y at %l:%M %P") %> |
 
-<% if logged_in? && logged_in_user == @post.forum.creator_object %>
-  <%= link_to 'Delete', "#{@post.slug}/destroy" %>
+<% if logged_in? && logged_in_user == @post.forum.creator_object || logged_in? && logged_in_user == @post.creator %>
+  <%= link_to 'Edit', "#{@post.slug}/edit" %> | <%= link_to 'Delete', "#{@post.slug}/destroy", class:"red" %>
 <% end %>
 </p>
 

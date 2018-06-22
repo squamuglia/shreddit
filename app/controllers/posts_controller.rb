@@ -31,25 +31,29 @@ class PostsController < ApplicationController
 
 
   def edit
+    @post = Post.find_by_slug(params[:slug])
   end
 
   def update
+    @post = Post.find_by_slug(post_params[:slug])
+    @post.update_attributes(post_params)
+    redirect_to "/forums/#{@post.forum.slug}/posts/#{@post.slug}"
   end
 
   def destroy
-    @forum_slug =  Forum.find_by_slug(params[:forum]).slug
     #find post via slug
     @post = Post.find_by_slug(params[:slug])
-    #find the posts comments
-    @comments = @post.comments
-
+    #delete all comments and likes associated with the post
+    @post.delete_associated_comments
+    #delete the post
+    @post.destroy
     redirect_to "/forums/#{@forum_slug}"
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :score, :title, :content, :forum_id)
+    params.require(:post).permit(:user_id, :score, :title, :content, :slug, :forum_id)
   end
 
 end

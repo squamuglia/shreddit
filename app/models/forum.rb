@@ -35,4 +35,42 @@ class Forum < ApplicationRecord
     User.find_by(id: self.user_id).slug
   end
 
+  #delete the associated posts, in posts.rb, the associated comments are deleted, in comments.rb
+  #the associated likes are deleted
+  def delete_associated_posts
+    #get posts in forum
+    @posts = self.posts
+
+    # delete associated post's comments, and then destroy the post
+    @posts.each do |post|
+      post.delete_associated_comments
+
+    end
+    # delete all posts in forum
+    @posts.destroy_all
+  end
+
+  def create_moderators(mods)
+    mod_list = []
+    mods.each do |moderator|
+      mod_list << User.all.find_by(username: moderator[1])
+    end
+    #check to see if the moderator is already a moderator
+    refined_mod_list = mod_list.select do |mod|
+      !self.forum_admins.include?(mod)
+    end
+    refined_mod_list = refined_mod_list.compact
+    #list of forum admin usernames
+    users = ForumAdmin.usernames
+    #now create mods
+    if refined_mod_list != []
+      refined_mod_list.each do |rmod|
+        if !users.include?(rmod.username)
+          ForumAdmin.create(user_id: rmod.id, forum_id: self.id)
+        else
+          puts "#{rmod.username} is already a moderator for this forum!"
+        end
+      end
+    end
+  end
 end

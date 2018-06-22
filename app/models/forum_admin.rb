@@ -10,4 +10,12 @@ class ForumAdmin < ApplicationRecord
   def slug
     User.find_by(id: self.user_id).slug
   end
+
+  def self.usernames
+    farray=[]
+    ForumAdmin.all.map do |fa|
+      farray << fa.user.username
+    end
+    farray
+  end
 end

@@ -34,6 +34,9 @@
   .container { width: 100%; margin: 80px auto; }
   .nav { margin: 0px; }
 }
+.red {
+  color: red !important;
+}
 .container a { color: #333; }
 
 .border-bottom-dashed { border-bottom: dashed 1px #000; }

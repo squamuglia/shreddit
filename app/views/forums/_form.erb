@@ -1,11 +1,21 @@
-
-<% if logged_in? %>
-  <%= form_for @forum do |f| %>
-    <%= f.label "Title" %>
-    <%= f.text_field :name %> <br>
-    <%= f.hidden_field :user_id %>
-    <%= f.submit %>
+<% if @forum.errors.any? %>
+  <ul>
+  <% @forum.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
   <% end %>
-<% else %>
-  <%= link_to "Login to create a forum", "/login" %>
+  </ul>
+<% end %>
+
+<%= form_tag("/forums/#{@forum.id}", method: "patch") do %>
+  <label for="name">Forum Name: </label>
+  <%= text_field_tag(:name, @forum.name) %>
+  <%= hidden_field_tag(:slug, @forum.slug) %>
+  <p>Add Moderators</p>
+  <label for="mods[mod1]">Username: </label>
+  <%= text_field_tag(:"mod[mod1]") %>
+  <label for="mods[mod2]">Username: </label>
+  <%= text_field_tag(:"mod[mod2]") %>
+  <label for="mods[mod3]">Username: </label>
+  <%= text_field_tag(:"mod[mod3]") %>
+  <%= submit_tag("update forum") %>
 <% end %>

@@ -1,2 +1,7 @@
-<h1>Create a Edit Forum</h1>
-<%= render "forums/form" %>
+
+<!-- Allow Forum Creator to Delete the Forum -->
+<% if logged_in? && logged_in_user_id_integer == @forum.user_id %>
+  <%= link_to 'Delete', "destroy", class:"red" %>
+<% end %>
+
+<%= render "forums/form" %> 

@@ -40,11 +40,23 @@ class ForumsController < ApplicationController
   end
 
   def update
-    @forum.update(forum_params)
+    @forum = Forum.find_by_slug(params[:slug])
+    @mods = @forum.forum_admins
+    #this makes new mods for the forum by username
+    @forum.create_moderators(params[:mod])
+    #update the forum as well
+    @forum.update_attributes(slug: params[:slug], name: params[:name])
+    redirect_to "/forums/#{@forum.slug}"
   end
 
   def destroy
-    @forum = Forum.find_by_slug(params[:slug]).destroy
+    #find forum via slug
+    @forum = Forum.find_by_slug(params[:slug])
+    #delete posts, likes, comments, all associated in that order
+    @forum.delete_associated_posts
+    #destroy forum
+    @forum.destroy
+    redirect_to "/forums"
   end
 
   private
