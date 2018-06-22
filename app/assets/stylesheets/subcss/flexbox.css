@@ -1,5 +1,5 @@
-.f { display: flex }
-.fw { flex-wrap: wrap }
+.f { display: flex; display: -webkit-flex; }
+.fw { flex-wrap: wrap; -webkit-flex-wrap: wrap; }
 .fwr { flex-wrap: wrap-reverse }
 .ais { align-items: flex-start }
 .aie { align-items: flex-end }
@@ -10,6 +10,7 @@
 .jcc { justify-content: center }
 .jcb { justify-content: space-between }
 .fa {
+  -webkit-box-flex: 1 1 auto;
   flex: 1 1 auto;
   min-width: 0;
   min-height: 0;
