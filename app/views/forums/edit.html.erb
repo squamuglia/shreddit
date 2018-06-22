@@ -1,7 +1,7 @@
 
 <!-- Allow Forum Creator to Delete the Forum -->
 <% if logged_in? && logged_in_user_id_integer == @forum.user_id %>
-  <%= link_to 'Delete', "destroy", class:"red" %>
+  <p><%= button_to 'Delete', "destroy", class:"red" %></p>
 <% end %>
 
-<%= render "forums/form" %> 
+<%= render "forums/form" %>
