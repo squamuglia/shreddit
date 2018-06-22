@@ -37,9 +37,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    
     @forum_slug =  Forum.find_by_slug(params[:forum]).slug
-    @post = Post.find_by_slug(params[:slug]).destroy
+    #find post via slug
+    @post = Post.find_by_slug(params[:slug])
+    #find the posts comments
+    @comments = @post.comments
 
     redirect_to "/forums/#{@forum_slug}"
   end
