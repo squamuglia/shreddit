@@ -43,6 +43,7 @@ trix-toolbar .button_group button:hover, trix-toolbar .button_group input[type=b
   transform: translate(2px, 2px);
   box-shadow: none;
   transition: 0.2s;
+  background: #fafafa;
 }
 
 trix-toolbar .button_group button:not(:first-child), trix-toolbar .button_group input[type=button]:not(:first-child) {
@@ -57,6 +58,7 @@ trix-toolbar .button_group button.active, trix-toolbar .button_group input[type=
   transform: translate(2px, 2px);
   box-shadow: none;
   transition: 0.2s;
+  background: #fafafa;
 }
 
 trix-toolbar .button_group button.icon, trix-toolbar .button_group input[type=button].icon {

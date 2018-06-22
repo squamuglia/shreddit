@@ -15,7 +15,7 @@
  */
 
 
-  @import 'subcss/reset';
+  /* @import 'subcss/reset';
   @import 'subcss/display';
   @import 'subcss/positioning';
   @import 'subcss/flexbox';
@@ -26,10 +26,14 @@
   @import 'subcss/lists';
   @import 'subcss/typography';
   @import 'subcss/z-index';
-  @import '/trix_overwrite.css';
+  @import '/trix_overwrite.css'; */
 
-.container { max-width: 980px; margin: 80px auto; }
+.container { max-width: 600px; margin: 80px auto; }
 
+@media only screen and (max-width: 600px) {
+  .container { width: 100%; margin: 80px auto; }
+  .nav { margin: 0px; }
+}
 .container a { color: #333; }
 
 .border-bottom-dashed { border-bottom: dashed 1px #000; }
@@ -45,6 +49,8 @@
 .box200 { max-width: 200px; max-height: 200px; height: 200px; }
 
 .box30 { width: 30px; height: 30px; }
+
+.shadow { box-shadow: 2px 2px; }
 
 .like img { width: 15px }
 
@@ -71,15 +77,13 @@
   padding-left: 1.6em;
 }
 
-/* .home-bg {
-  height: 100vw;
-  background: linear-gradient(89deg, #000000, #ffffff);
-  background-size: 400% 400%;
-
-  animation: AnimationName 9s ease infinite;
-
-  @keyframes AnimationName {
-      0%{background-position:0% 14%}
-      50%{background-position:100% 87%}
-      100%{background-position:0% 14%}
-  } */
+.mod:before {
+  content: '';
+  display: inline-block;
+  height: 0.75em;
+  width: 0.75em;
+  background-image: url(/mod-crown.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 1.6em;
+}

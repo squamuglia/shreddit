@@ -13,6 +13,7 @@ class ForumsController < ApplicationController
     @forum = Forum.find_by_slug(params[:slug])
     @posts = @forum.posts
     @admins = @forum.forum_admins
+    @fas = @forum.forum_admin_users
   end
 
   def new
@@ -35,7 +36,7 @@ class ForumsController < ApplicationController
   end
 
   def edit
-    @forum = Forum.find_by(params[:id])
+    @forum = Forum.find_by_slug(params[:slug])
   end
 
   def update
@@ -43,7 +44,7 @@ class ForumsController < ApplicationController
   end
 
   def destroy
-    @forum = Forum.find_by(params[:id]).destroy
+    @forum = Forum.find_by_slug(params[:slug]).destroy
   end
 
   private

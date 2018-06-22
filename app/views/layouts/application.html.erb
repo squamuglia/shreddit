@@ -4,28 +4,30 @@
     <title>Shreddit</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="shortcut icon" href="/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
 
   </head>
   <body>
-  <div class="nav f mb1">
+  <div class="nav f fw mb1">
     <h3 class="s4 fll mt1 ml1 fa x50"><%= link_to 'Shreddit', '/', class:'no-under' %></h3>
     <ul class="mt1 mr1 fa ar f x50 xmax500 inline-block">
-      <li class="fa"><%= link_to 'Home', '/' %></li>
-      <li class="fa"><%= link_to 'Forums', forums_path %></li>
+      <li class="fa ac"><%= link_to 'Home', '/' %></li>
+      <li class="fa ac"><%= link_to 'Forums', forums_path %></li>
        <% if logged_in? %>
-        <li class="fa">
+        <li class="fa ac">
           Hello <%= link_to  logged_in_user.username, "/users/#{logged_in_user.slug}"%> |
           <%= link_to "Logout", destroy_session_path, method: :delete %>
         </li>
       <% else %>
-        <li class="fa">
+        <li class="fa ac">
           <%= link_to "Register", '/register' %>
         </li>
-        <li class="fa">
+        <li class="fa ac">
           <%= link_to "Login", '/login' %>
         </li>
       <% end %>
