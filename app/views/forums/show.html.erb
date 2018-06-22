@@ -10,6 +10,7 @@
     </p>
     <p>Desc: <%= @forum.description %></p>
   </div>
+  <% if @admins.any? %>
   <div class="border p1 shadow fa">
     <p class="mt0 ac"><%= "Admin" %></p>
     <hr class="mb1">
@@ -24,6 +25,7 @@
       <% end %>
     </ul>
   </div>
+  <% end %>
 
 </div>
 <p><%= link_to "New Post", "/forums/#{@forum.slug}/posts/new" %></p>

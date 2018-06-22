@@ -1,3 +1,5 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
 .shape {
     margin: 0 auto;
     position: relative;
@@ -10,7 +12,7 @@
 
 $circle-size: 100px;
 $colors: #FFD700, #FFF8DC, #DB7093, #C2B7FE, #95A9FF;
-$shapes: 'content: url(/crown.svg)', 'url(/mod-crown.svg)', 'url(/red-heart.svg)', 'url(/heart.svg)';
+$shapes: '\f005', '\f0c8', '\f1db', '\f096', '\f1d8', '\f1cb';
 $shape-count: 50;
 
 @for $i from 1 through $shape-count {
@@ -37,8 +39,8 @@ $shape-count: 50;
 
         .random-shape:after {
             margin: #{$shape-size}rem;
-            height: #{$shape-size * 0.2}rem;
-            width: #{$shape-size * 0.2}rem;
+            color: $shape-color;
+            font-size: #{$shape-size * 0.2}rem;
             content: $shape-type;
         }
     }
