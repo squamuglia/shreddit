@@ -2,7 +2,7 @@
 <% if logged_in? %>
   <%= form_for @forum do |f| %>
     <%= f.label "Title" %>
-    <%= f.text_field :name %> <br>
+    <%= f.text_field :name, class:'x' %> <br>
     <%= f.hidden_field :user_id %>
     <%= f.submit %>
   <% end %>
