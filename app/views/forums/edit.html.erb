@@ -1,7 +1,10 @@
 
 <!-- Allow Forum Creator to Delete the Forum -->
-<% if logged_in? && logged_in_user_id_integer == @forum.user_id %>
-  <p><%= button_to 'Delete', "destroy", class:"red" %></p>
-<% end %>
-
+<div class='xmax500 border p1 mxa shadow'>
+<h3>Edit Forum</h3>
 <%= render "forums/form" %>
+
+<% if logged_in? && logged_in_user_id_integer == @forum.user_id %>
+  <p><%= button_to 'Delete', "destroy" %></p>
+<% end %>
+</div>

@@ -8,7 +8,6 @@
 }
 
 $circle-size: 100px;
-$colors: #FFD700, #FFF8DC, #DB7093, #C2B7FE, #95A9FF;
 $shapes: url('/crown.svg'), url('/red-heart.svg'), url('/mod-crown.svg');
 $shape-count: 50;
 
@@ -16,8 +15,6 @@ $shape-count: 50;
     $shape-size: random(10);
     $rotation: random(360);
     $speed: 40 + random(10);
-    $color-key: random( length($colors) );
-    $shape-color: nth( $colors, $color-key );
     $shape-key: random( length($shapes) );
     $shape-type: nth( $shapes, $shape-key );
     $text: random(10);
@@ -36,7 +33,6 @@ $shape-count: 50;
 
         .random-shape:after {
             margin: #{$shape-size}rem;
-            color: $shape-color;
             height: #{$shape-size * 0.2}rem;
             content: $shape-type;
         }
