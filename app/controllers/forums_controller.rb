@@ -6,7 +6,6 @@ class ForumsController < ApplicationController
 
   def index
     @forums = Forum.all
-
   end
 
   def show
@@ -23,12 +22,13 @@ class ForumsController < ApplicationController
   end
 
   def create
-    @forum = Forum.new(forum_params)
+    @forum = Forum.new(name: params[:name], user_id: helpers.logged_in_user.id, description: params[:description])
+
     #generate forum slug
-    @forum.slug = to_slug(forum_params[:name])
+    @forum.slug = to_slug(params[:name])
     if @forum.save
       #create the forum admin relationship
-      ForumAdmin.create(user_id: @forum.user_id, forum_id: @forum.id)
+      @forum.create_moderators(params[:mod])
       redirect_to "/forums/#{@forum.slug}"
     else
       render :new

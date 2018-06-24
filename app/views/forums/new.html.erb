@@ -3,10 +3,10 @@
 <% if logged_in? %>
   <%= form_tag("/forums/#{@forum.id}", method: "post") do %>
     <label for="name">Forum Name: </label>
-    <%= text_field_tag(:name, @forum.name) %>
+    <%= text_field_tag(:name) %> <br>
     <label for="description">Describe your forum:</label>
-    <%= text_area_tag(:description, @forum.description) %>
-    <%= hidden_field_tag(:slug, @forum.slug) %>
+    <%= text_field_tag(:description) %>
+
     <p>Add Moderators</p>
     <label for="mods[mod1]">Username: </label>
     <%= text_field_tag(:"mod[mod1]") %>
