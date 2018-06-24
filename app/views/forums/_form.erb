@@ -11,7 +11,7 @@
   <%= text_field_tag(:name, @forum.name, class:'x') %>
   <%= hidden_field_tag(:slug, @forum.slug, class:'x') %>
   <label for="description">Forum Description: </label>
-
+  <%= text_area_tag(:description, @forum.description, class:'x')  %>
   <p>Add Moderators</p>
   <label for="mods[mod1]">Username: </label>
   <p class="x mt0"><%= text_field_tag(:"mod[mod1]") %></p>
