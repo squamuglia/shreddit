@@ -15,8 +15,7 @@ class CommentsController < ApplicationController
 
   def destroy
     #find comment
-    binding.pry
-    @comment =
+
     #destroy all likes associated with comment
     @comment.likes.destroy_all
   end
