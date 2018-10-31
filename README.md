@@ -1,8 +1,8 @@
 # SHREDDIT
 
-Shreddit is a forum built entirely on Rails and contains some cool little features that test the limits of coding without any sort of asyncronous rendering :D
+Shreddit is a forum built entirely on Rails and contains some cool little features that test the limits of coding without any sort of asyncronous rendering 
 
-Shreddit's has forums, posts and comments. Users can create posts in a forum, and forum admins can delete comments or posts for anyone in their forum. 
+Shreddit's has forums, posts and comments. Users can create posts in a forum, and forum admins can delete comments or posts for anyone in their forum.
 
 When posting, users have access to a rich text editor built on Campfire's trix.
 
