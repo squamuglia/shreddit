@@ -13,8 +13,6 @@ Rails.application.routes.draw do
 
   post 'forums/:slug/posts/:slug' => 'likes#create'
 
-
-
   get 'forums/:slug' => 'forums#show', as: "show_forum"
   get 'forums/:slug/posts/new' => 'posts#new', as: "new_post"
   get 'forums/:slug/destroy' => 'forums#destroy', as: "destroy_forum"
