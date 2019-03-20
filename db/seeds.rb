@@ -37,9 +37,10 @@ forum5 = Forum.create(name:"Max's Forum, A Space for Max, to be Max", descriptio
 
 p1 = Post.create(title: "Welcome to my post", content: "It is what it is", user_id:max.id, forum_id: forum.id)
 
-Comment.create(user_id: tony.id, post_id: p1.id, content: "This post is bullshit")
+Comment.create(user_id: tony.id, post_id: p1.id, content: "Hello!")
 Comment.create(user_id: max.id, post_id: p1.id, content: "Lol")
-Comment.create(user_id: max.id, post_id: p1.id, content: "What does it look like hwne you write a very very long comment and just keep writing we're curious so we're just goning to keep on typiong without stopping accuracy be damend. I'm like a runaway train here toooooooooot tooot just tip tip typing away typing typing done stop.")
+Comment.create(user_id: max.id, post_id: p1.id, content: "Lorem ipsum dolor sit amet, at nonumes deleniti democritum eam. Sit te assum corrumpit. Eligendi postulant aliquando nec in, no nam movet omnium. Reque molestie electram id mei, ad viris decore omnium vis. Case abhorreant at cum, id tale legimus ius, id senserit ullamcorper per. Ex rebum putant epicuri duo, cum ne principes moderatius.
+")
 
 
 p2 = Post.create(title: "Selling used lawnmower", content: "gimme 500 for it", user_id:tony.id, forum_id: forum2.id)
@@ -55,7 +56,7 @@ c4 = Comment.create(user_id: chef.id, post_id: p4.id, content: "I need a new law
 Comment.create(user_id: tony.id, post_id: p4.id, content: "DM me")
 
 p5 = Post.create(title: "Friends indeed", content: "gimme 500 for it", user_id:max.id, forum_id: forum4.id)
-c1 = Comment.create(user_id: chef.id, post_id: p1.id, content: "hennessey")
+c1 = Comment.create(user_id: chef.id, post_id: p1.id, content: "Forever and ever.")
 c2 = Comment.create(user_id: chef.id, post_id: p5.id, content: "I need a new lawmower")
 c3 = Comment.create(user_id: tony.id, post_id: p5.id, content: "DM me")
 l1 = Like.create(user_id: tony.id, comment_id: c1.id)

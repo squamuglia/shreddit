@@ -2,7 +2,7 @@
 <p><%= link_to "Create a New Forum", "/forums/new" %></p>
 <br>
 <ol>
-  <% @forums.each do |forum| %>
+  <% @forums.reverse.each do |forum| %>
     <li class="x"><%= link_to forum.name, "forums/#{forum.slug}" %> | <%= pluralize(forum.posts.count, 'Post')%></li>
   <% end %>
 </ol>

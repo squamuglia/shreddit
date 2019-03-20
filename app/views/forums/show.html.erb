@@ -32,7 +32,7 @@
 
 <h3>Posts</h3>
 <ul>
-  <% @posts.each do |post| %>
+  <% @posts.reverse.each do |post| %>
     <li><%= link_to post.title, "/forums/#{@forum.slug}/posts/#{post.slug}" %> | <%= pluralize(post.comments.count, 'Comment')%></li>
     <!-- <li><%= link_to post.title, show_forum_url(@forum.slug, post.slug) %> | <%= pluralize(post.comments.count, 'Comment')%></li> -->
   <% end %>
