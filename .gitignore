@@ -30,4 +30,4 @@
 /config/master.key
 
 # Ignore users uploads
-/public/user
+/public/uploads/user
